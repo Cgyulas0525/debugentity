@@ -12,11 +12,25 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+    /*
+    |--------------------------------------------------------------------------
+    | Auth Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller is responsible for user registration, login, logout and updating user data
+    |
+    */
     public function __construct()
     {
         $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
+    /**
+     * User login, data check and return with user data if login is successful
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -49,6 +63,12 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * User registration. If registration is successful, you will be returned with your user data.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -75,6 +95,11 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * User logout
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function logout()
     {
         Auth::logout();
@@ -83,6 +108,11 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Use data refresh
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function refresh()
     {
         return response()->json([
