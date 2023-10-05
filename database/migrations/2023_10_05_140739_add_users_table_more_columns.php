@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
+        /**
+         * Run the migrations.
+         */
         if (Schema::hasColumn('users', 'phonenumber')) {
             return;
         }
