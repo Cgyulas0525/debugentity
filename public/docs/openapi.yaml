@@ -1,0 +1,94 @@
+openapi: 3.0.3
+info:
+  title: Debugentity
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/login:
+    post:
+      summary: 'User login, data check and return with user data if login is successful'
+      operationId: userLoginDataCheckAndReturnWithUserDataIfLoginIsSuccessful
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: cassidy.zulauf@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: '_EU?_AV%C'
+              required:
+                - email
+                - password
+      security: []
+  /api/register:
+    post:
+      summary: 'User registration. If registration is successful, you will be returned with your user data.'
+      operationId: userRegistrationIfRegistrationIsSuccessfulYouWillBeReturnedWithYourUserData
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: mzkkusokawwfvolbjqsj
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: nitzsche.myrl@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: ut
+              required:
+                - name
+                - email
+                - password
+      security: []
+  /api/logout:
+    post:
+      summary: 'User logout'
+      operationId: userLogout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/refresh:
+    post:
+      summary: 'Use data refresh'
+      operationId: useDataRefresh
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''
